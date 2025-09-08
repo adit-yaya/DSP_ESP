@@ -40,7 +40,7 @@ void fft(std::vector<Complex>& x) {
     // base case, empty signal
     if (N <= 1) {
         return;
-    }
+    }   
 
     for (size_t i = 0; i < N - 1; i++) {
         size_t j = bit_reverse(i, num_bits);
