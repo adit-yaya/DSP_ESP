@@ -19,7 +19,7 @@ void swap(Complex& i, Complex& j) {
 size_t bit_reverse(size_t n, int num_bits) {
     size_t reversed_n = 0;
 
-    for (int bit = 0; bit < num_bits; bit++) {
+    for (int bit = 0; bit < num_bits; ++bit) {
         // move reversed over to left one bit
         reversed_n <<= 1;
         // add last bit from n to reversed_n
@@ -42,7 +42,7 @@ void fft(std::vector<Complex>& x) {
         return;
     }   
 
-    for (size_t i = 0; i < N - 1; i++) {
+    for (size_t i = 0; i < N - 1; ++i) {
         size_t j = bit_reverse(i, num_bits);
 
         if (i < j) {
@@ -69,20 +69,20 @@ void fft(std::vector<Complex>& x) {
 }
 
 
-void print_vector(const std::string& label, const std::vector<Complex>& x) {
-    std::cout << label << ":" << std::endl;
-    for (size_t i = 0; i < x.size(); i++) {
-        std::cout << " [" << i << "] = " << x[i] << std::endl;
-    }
-}
+// void print_vector(const std::string& label, const std::vector<Complex>& x) {
+//     std::cout << label << ":" << std::endl;
+//     for (size_t i = 0; i < x.size(); ++i) {
+//         std::cout << " [" << i << "] = " << x[i] << std::endl;
+//     }
+// }
 
-int main() {
-    std::vector<Complex> signal = {1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0};
-    print_vector("signal", signal);
+// int main() {
+//     std::vector<Complex> signal = {1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0};
+//     print_vector("signal", signal);
     
-    fft(signal);
+//     fft(signal);
 
-    print_vector("fft result", signal);
+//     print_vector("fft result", signal);
 
-    return 0;
-}
+//     return 0;
+// }
